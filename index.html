@@ -290,6 +290,20 @@
 
     <script>
 
+let playerInfo = {
+    playerName: "",
+    level: 1,
+    realm: "鬥之氣一段",
+    health: 100,
+    experience: 0,
+    isAdventurePaused: false,
+    intervalId: null,
+    adventureSpeed: 3,
+    trainingSpeed: 1, // 確認已經有設置預設值
+    gameSeconds: 0,
+    selectedFlame: "一般鬥火", // 確認已經有設置預設值
+};
+
 <!-- 玩家輸入名稱後觸發的函式 -->
     function inputPlayerName() {
         playerName = document.getElementById("player-name").value.trim();
@@ -384,6 +398,9 @@ function startGame() {
     document.getElementById("toggle-btn").innerText = "暫停修練";
     document.getElementById("start-btn").style.display = "none";
 
+    // 更新玩家的修練天賦和擁有火焰
+    playerInfo.trainingSpeed = trainingSpeed;
+    playerInfo.selectedFlame = selectedFlame;
 
         // 隨機生成修練速度，這裡設定最小值為 1，最大值為 100，你可以自行調整
         trainingSpeed = Math.floor(Math.random() * 100) + 1;
@@ -4108,6 +4125,8 @@ function updateLeaderboard() {
         level,
         realm,
     gameSeconds, // 修改此行，將遊戲耗時記錄到排行榜數據中
+    trainingSpeed,
+    selectedFlame,
     };
 
     // 將玩家資訊記錄到排行榜中
@@ -4148,7 +4167,7 @@ function updateLeaderboard() {
 }
 
 function getPlayerInfoString(playerInfo) {
-return `${playerInfo.playerName} - ${getFormattedRealm(playerInfo.level, playerInfo.realm)} - ${playerInfo.gameSeconds}日`;
+    return `◆【${getFormattedRealm(playerInfo.level, playerInfo.realm)}】${playerInfo.playerName} (天賦${playerInfo.trainingSpeed}，${playerInfo.gameSeconds}日)`;
 }
 
 
