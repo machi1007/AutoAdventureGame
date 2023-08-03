@@ -6,10 +6,10 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f7f7f7;
-            background-image: url("https://pic.52112.com/180528/JPG-180528_534/Uw2ubU4eYT_small.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
+    background-image: url("https://pic.52112.com/180528/JPG-180528_534/Uw2ubU4eYT_small.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
         }
 
         #game-container {
@@ -20,6 +20,7 @@
             border: 1px solid #ccc;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
         }
         }
 
@@ -78,10 +79,20 @@
         }
 
         #leaderboard-container {
-            margin-top: 20px;
-            text-align: center;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+   text-align: center;
         }
 
+#leaderboard-container p {
+    margin: 5px 0;
+    /* 這裡可以添加排行榜內容的樣式 */
+}
         #leaderboard {
             display: inline-block;
             text-align: left;
@@ -255,8 +266,6 @@
             </select>
         </div>
         <div id="chatbox"></div>
-    </div>
-
     <div id="leaderboard-container">
         <div id="leaderboard">
             <h2>排行榜</h2>
@@ -264,6 +273,9 @@
             <button onclick="clearLeaderboard()">清除排行榜</button>
         </div>
     </div>
+    </div>
+
+
 
 <!-- 彈出窗口 -->
 <div id="overlay">
